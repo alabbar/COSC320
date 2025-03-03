@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww33400\viewh20440\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 C4 Compiler Code Statistics\
+\
+\
+1. Lines of Code (LOC)\
+\
+Total LOC: ~420 (excluding comments and blank lines)\
+- next(): 110 lines\
+- expr(): 150 lines\
+- stmt(): 50 lines\
+- main(): 110 lines\
+\
+2. Cyclomatic Complexity\
+\
+- next(): ~25 (complex tokenization)\
+- expr(): ~40 (precedence climbing, operators)\
+- stmt(): ~10 (control flow parsing)\
+- main(): ~15 (setup and VM execution)\
+\
+3. Number of Functions and Sizes\
+\
+Total Functions: 4\
+- next(): 110 LOC\
+- expr(): 150 LOC\
+- stmt(): 50 LOC\
+- main(): 110 LOC\
+\
+4. Global Variables\
+\
+Count: 14\
+Variables: p, lp, data, e, le, id, sym, tk, ival, ty, loc, line, src, debug\
+Usage: All actively used across functions; no dead globals.\
+\
+5. Unique Tokens and Frequency\
+\
+Estimated Unique Tokens: ~70\
+- Keywords: ~15 (e.g., if, while)\
+- Operators: ~20 (e.g., +, &&)\
+- Identifiers: ~30 (e.g., tk, sym)\
+Frequency: High reuse of tk, ival, *p (hundreds of uses).\
+\
+6. Branches, Loops, and Nesting\
+\
+Branches: ~80 (60 if/else, 20 logical operators)\
+Loops: ~15 (mostly while loops)\
+Nesting Levels:\
+- next(): Max 3\
+- expr(): Max 4\
+- stmt(): Max 2\
+- main(): Max 2\
+\
+7. Memory Usage Patterns\
+\
+Static Heap: ~1 MB (4 x 256 KB pools for sym, e, data, sp)\
+Dynamic Heap: Via MALC/FREE opcodes (user-dependent)\
+Stack: Local vars + VM stack (*sp) for execution\
+Pattern: Fixed pools + optional runtime allocation\
+\
+Summary\
+\
+C4 is a compact compiler with ~420 LOC across 4 functions. High cyclomatic complexity in expr() (40) reflects its parsing complexity, while next() (25) handles diverse tokenization. Global variables (14) are central to its design, with no redundancy. Loops and branches are moderate, with nesting up to 4 levels. Memory usage relies on static pools (~1 MB), with dynamic allocation optional, optimizing for minimalism.}
